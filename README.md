@@ -66,7 +66,10 @@ Then you may use `SpeechModel.py` to create a model based on specifications form
 
 
 # Credits and acknowledgements:
-I did this work for a hackathon. This method did not produce the best results for my use case. I suspect this was due to the dataset being very noisy.
+Team:
+1. Sudarshan Buxy
+2. Rohan Jain (@rohanj-02)
+3. Joykirat Singh (@joykirat18)
 
 # Citation
 >
