@@ -43,7 +43,11 @@ This repository can be used in the following ways:
     model = SP.create_model()
     # Rest of model training code
     ```
-3. Using just the `load_wav` and `get_framed_log_melspectrogram` functions from `utils.py`, you can write your own dataset funcion, as well as your own model. This function returns a `(num_frames, 64, 64, 3)` shaped array that can be fed to a [TimeDistributed](https://www.tensorflow.org/api_docs/python/tf/keras/layers/TimeDistributed) network of your choice.  
+3. Using just the `load_wav` and `get_framed_log_melspectrogram` functions from `utils.py`, you can write your own dataset funcion, as well as your own model. This function returns a `(num_frames, 64, 64, 3)` shaped array that can be fed to a [TimeDistributed](https://www.tensorflow.org/api_docs/python/tf/keras/layers/TimeDistributed) network of your choice.
+
+4. We experimented on the RAVDESS dataset as well as the EMO-DB dataset with different pre-trained dcnn architectures (AlexNet mentioned in the referenced paper as well as ResNet-18).
+5. The Emo-DB python notebook contains the AlexNet and the ResNet 18 architecture experiments on EMO-DB Dataset.
+The Notebook also contains the appropriate label processing for the emo-db dataset.
 
 # Model Description
 The model uses a [TimeDistributed](https://www.tensorflow.org/api_docs/python/tf/keras/layers/TimeDistributed) layer to feed all segments of a audio file that have been converted into 3 channel images to a pretrained CNN network (in this case, resnet50_v2, trained on imagenet). Following this, we have bi-lstm layers and attention layers. Then, there are Fully Connected Layers with dropout and finally, classification with 8 nodes.  
@@ -56,13 +60,8 @@ The model uses a [TimeDistributed](https://www.tensorflow.org/api_docs/python/tf
 - Use `python train.py -h` to see a list of arguments.  
 - `python train.py 30` to train the model for 30 epochs  
 
-## Inference
-(Still to be implemented)  
+ 
 
-# Limitations
-1. Currently this repo only supports dataset preparation for the RAVDESS model since different datasets describe their labels differently. You can still use this repo with other datasets by defining your own function to load the datasets and using the `get_framed_log_melspectrograms` function from `utils.py`.  
-Then you may use `SpeechModel.py` to create a model based on specifications form the paper and train.  
-2. Since I couldn't find a pretrained AlexNet model and didn't have the resources myself to train one from scratch, I used a pretrained ResNet 50 model. This may affect the performance and not match the results given by the authors.  
 
 
 # Credits and acknowledgements:
