@@ -26,7 +26,7 @@ Use `sudo apt-get install libsndfile1` to install sndfile library
 # Usage  
 This repository can be used in the following ways:  
 1. Using `train.py`.  
-  i. Download the RAVDESS dataset (only this dataset is supported as of now) and extract it within the dataset directory. Then run the commands below to move all files into the `.dataset/` directory from indivisual sub folders like `.dataset/Actor-xx`. Run these from within the `dataset` directory. Make sure to be in the `.dataset/` directory before running these comannds from a linux terminal.
+  i. Download the RAVDESS dataset and extract it within the dataset directory. Then run the commands below to move all files into the `.dataset/` directory from indivisual sub folders like `.dataset/Actor-xx`. Run these from within the `dataset` directory. Make sure to be in the `.dataset/` directory before running these comannds from a linux terminal.
     ```
     find . -mindepth 2 -type f -print -exec mv {} . \;  
     rm -r Actor_*
